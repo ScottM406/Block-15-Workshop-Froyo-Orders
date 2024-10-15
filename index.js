@@ -8,30 +8,39 @@ const splitScoops = promptInput.split(`,`);
 
 const froyoOrder = {};
 
-// The flavors are classfied and the keys inside the froyoOrder object are set to equal flavor names.
+// The flavors are classfied and the flavor names are assigned to keys in the froyoOrder object. Simultainiusly,
+// the count for each flavor is tallied.
+
+//NOTE: Currently the code is not in a invokable function, and breaks if user input is switched up too much.
+//      I will put the following code in an invokable function, and add functionality for over three flavors
+//      and scrambled input when I get the time.
 
 flavorOne = splitScoops.shift();
-froyoOrder[flavorOne] = 0;
+froyoOrder[flavorOne] = 1;
 for (let i = 0; i < splitScoops.length; i++) {
   if (flavorOne === splitScoops[0]) {
+    froyoOrder[flavorOne] = froyoOrder[flavorOne] +1;
     splitScoops.shift();
+
   }
 }
 
 flavorTwo = splitScoops.shift();
-froyoOrder[flavorTwo] = 0;
+froyoOrder[flavorTwo] = 1;
 for (let i = 0; i < splitScoops.length; i++) {
   if (flavorTwo === splitScoops[0]) {
+    froyoOrder[flavorTwo] = froyoOrder[flavorTwo] + 1;
     splitScoops.shift();
   }
 }
 
 flavorThree = splitScoops.shift();
-froyoOrder[flavorThree] =0;
+froyoOrder[flavorThree] = 1;
 for (let i = 0; i < splitScoops.length; i++) {
   if (flavorThree === splitScoops[0]) {
+    froyoOrder[flavorThree] = froyoOrder[flavorThree] + 1;
     splitScoops.shift();
   }
 }
 
-console.log(froyoOrder);
+console.log(`You have ordered:`, froyoOrder);
