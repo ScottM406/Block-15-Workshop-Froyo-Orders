@@ -11,36 +11,41 @@ const froyoOrder = {};
 // The flavors are classfied and the flavor names are assigned to keys in the froyoOrder object. Simultainiusly,
 // the count for each flavor is tallied.
 
-//NOTE: Currently the code is not in a invokable function, and breaks if user input is switched up too much.
-//      I will put the following code in an invokable function, and add functionality for over three flavors
-//      and scrambled input when I get the time.
+//NOTE: Currently the formula breaks if user input is switched up too much.
+//      I will add functionality for when over three flavors
+//      or scrambled input get entered.
 
-flavorOne = splitScoops.shift();
-froyoOrder[flavorOne] = 1;
-for (let i = 0; i < splitScoops.length; i++) {
-  if (flavorOne === splitScoops[0]) {
-    froyoOrder[flavorOne] = froyoOrder[flavorOne] +1;
-    splitScoops.shift();
+const flavorClassify = () => {
+  flavorOne = splitScoops.shift();
+  froyoOrder[flavorOne] = 1;
+  for (let i = 0; i < splitScoops.length; i++) {
+    if (flavorOne === splitScoops[0]) {
+      froyoOrder[flavorOne] = froyoOrder[flavorOne] +1;
+      splitScoops.shift();
 
+    }
   }
+
+  flavorTwo = splitScoops.shift();
+  froyoOrder[flavorTwo] = 1;
+  for (let i = 0; i < splitScoops.length; i++) {
+    if (flavorTwo === splitScoops[0]) {
+     froyoOrder[flavorTwo] = froyoOrder[flavorTwo] + 1;
+     splitScoops.shift();
+    }
+  }
+
+  flavorThree = splitScoops.shift();
+  froyoOrder[flavorThree] = 1;
+  for (let i = 0; i < splitScoops.length; i++) {
+    if (flavorThree === splitScoops[0]) {
+      froyoOrder[flavorThree] = froyoOrder[flavorThree] + 1;
+      splitScoops.shift();
+    }
+  }
+  return froyoOrder;
 }
 
-flavorTwo = splitScoops.shift();
-froyoOrder[flavorTwo] = 1;
-for (let i = 0; i < splitScoops.length; i++) {
-  if (flavorTwo === splitScoops[0]) {
-    froyoOrder[flavorTwo] = froyoOrder[flavorTwo] + 1;
-    splitScoops.shift();
-  }
-}
-
-flavorThree = splitScoops.shift();
-froyoOrder[flavorThree] = 1;
-for (let i = 0; i < splitScoops.length; i++) {
-  if (flavorThree === splitScoops[0]) {
-    froyoOrder[flavorThree] = froyoOrder[flavorThree] + 1;
-    splitScoops.shift();
-  }
-}
+flavorClassify();
 
 console.log(`You have ordered:`, froyoOrder);
